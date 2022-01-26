@@ -94,6 +94,18 @@ noir : {}""".format(vide, blanc, noir))
     return case, demande_ligne, demande_colonne
 
 
+def hors_grille(case):
+    """
+        fonction verifiant qu'un case donne est dans la grille
+
+        :param case: tuple
+
+        :return: bool
+        """
+    colonne, ligne = case
+    return colonne<8 and colonne>=0 and ligne<8 and ligne>=0
+
+
 def case_vide(case):
     """
     fonction verifiant qu'un case donne est vide
@@ -175,6 +187,8 @@ def teste(grile, couleur, direction, case):
     :return: - False et tuple (pour eviter les erreur)
              - True et (case + direction)
     """
+    if not hors_grille(case):
+        return False, (8, 8, 8, 8)
     print("\n\n")
     new_case = augmente_case(case, direction, grile)
     print("teste")

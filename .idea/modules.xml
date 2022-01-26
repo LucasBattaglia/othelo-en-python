@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/../messagerie python 2.3/.idea/messagerie python 2.0.iml" filepath="$PROJECT_DIR$/../messagerie python 2.3/.idea/messagerie python 2.0.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/otelo.iml" filepath="$PROJECT_DIR$/.idea/otelo.iml" />
     </modules>
   </component>
