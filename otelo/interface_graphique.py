@@ -1,5 +1,4 @@
 import tkinter as tk
-import time as t
 
 fenetre = tk.Tk()
 
@@ -14,6 +13,10 @@ v = tk.StringVar()
 v.set("blue")
 v1 = tk.StringVar()
 v1.set("")
+adresseblanc = tk.StringVar()
+adresseblanc.set("")
+adressenoir = tk.StringVar()
+adressenoir.set("")
 v2 = tk.StringVar()
 v2.set("")
 Vnomblanc = tk.StringVar()
@@ -47,6 +50,62 @@ def affichage_table():
 
 
 def Conf_joueur():
+
+    def text():
+        if v1.get() == "Inscription":
+            id.grid(row=1, column=0, padx=5, pady=5)
+            Motsdepasse.grid(row=2, column=0, padx=5, pady=5)
+            adresse.grid(row=3, column=0, padx=5, pady=5)
+        elif v2.get == "Inscription":
+            id.grid(row=1, column=0, padx=5, pady=5)
+            Motsdepasse.grid(row=2, column=0, padx=5, pady=5)
+            adresse.grid(row=3, column=0, padx=5, pady=5)
+        elif v1.get() == "Oui":
+            id.grid(row=1, column=0, padx=5, pady=5)
+            Motsdepasse.grid(row=2, column=0, padx=5, pady=5)
+            adresse.grid_forget()
+        elif v2.get == "Oui":
+            id.grid(row=1, column=0, padx=5, pady=5)
+            Motsdepasse.grid(row=2, column=0, padx=5, pady=5)
+            adresse.grid_forget()
+        else:
+            id.grid_forget()
+            Motsdepasse.grid_forget()
+            adresse.grid_forget()
+
+
+
+    def connectonblanc():
+        if v1.get() == "Oui":
+            idblanc.grid(row=1, column=1, padx=5, pady=5)
+            Motsdepasseb.grid(row=2, column=1, padx=5, pady=5)
+            Adresseb.grid_forget()
+        elif v1.get() == "Inscription":
+            idblanc.grid(row=1, column=1, padx=5, pady=5)
+            Motsdepasseb.grid(row=2, column=1, padx=5, pady=5)
+            Adresseb.grid(row=3, column=1, padx=5, pady=5)
+        else:
+            idblanc.grid_forget()
+            Motsdepasseb.grid_forget()
+            Adresseb.grid_forget()
+        text()
+
+    def connectonnoir():
+        if v2.get() == "Oui":
+            idnoir.grid(row=1, column=2, padx=5, pady=5)
+            Motsdepassen.grid(row=2, column=2, padx=5, pady=5)
+            Adressen.grid_forget()
+        elif v2.get() == "Inscription":
+            idnoir.grid(row=1, column=2, padx=5, pady=5)
+            Motsdepassen.grid(row=2, column=2, padx=5, pady=5)
+            Adressen.grid(row=3, column=2, padx=5, pady=5)
+        else:
+            idnoir.grid_forget()
+            Motsdepassen.grid_forget()
+            Adressen.grid_forget()
+        text()
+
+
     # Création de la fenêtre principale (main window)
     Mafenetre = tk.Toplevel()
     Mafenetre.title("Configuration des joueur")
@@ -58,36 +117,40 @@ def Conf_joueur():
     Noir.grid(row=0, column=2, padx=5, pady=5)
 
     id = tk.Label(Mafenetre, text='Identifiant')
-    id.grid(row=1, column=0, padx=5, pady=5)
 
     idblanc = tk.Entry(Mafenetre, textvariable=Vnomblanc, bg='bisque', fg='maroon')
-    idblanc.grid(row=1, column= 1, padx=5, pady=5)
 
     idnoir = tk.Entry(Mafenetre, textvariable=Vnomnoir, bg='bisque', fg='maroon')
-    idnoir.grid(row=1, column=2, padx=5, pady=5)
 
     Motsdepasse = tk.Label(Mafenetre, text='Mots de passe')
-    Motsdepasse.grid(row=2, column=0, padx=5, pady=5)
 
     Motsdepasseb = tk.Entry(Mafenetre, textvariable=MDPnomblanc, bg='bisque', fg='maroon')
-    Motsdepasseb.grid(row=2, column=1, padx=5, pady=5)
 
     Motsdepassen = tk.Entry(Mafenetre, textvariable=MDPnomnoir, bg='bisque', fg='maroon')
-    Motsdepassen.grid(row=2, column=2, padx=5, pady=5)
 
-    j1 = tk.Radiobutton(Mafenetre, text="jouer contre l'ordinateur", variable=v1, value="IA", command=v1.get, bg=None)
-    j1.grid(row=3, column=1, padx=5, pady=5, sticky=tk.W)
-    j2 = tk.Radiobutton(Mafenetre, text="ne pas connecter ce joueur", variable=v1, value="Non", command=v1.get, bg=None)
-    j2.grid(row=4, column=1, padx=5, pady=5, sticky=tk.W)
-    j3 = tk.Radiobutton(Mafenetre, text="connecter ce joueur", variable=v1, value="Oui", command=v1.get, bg=None)
-    j3.grid(row=5, column=1, padx=5, pady=5, sticky=tk.W)
+    adresse = tk.Label(Mafenetre, text='Adresse mail')
 
-    j4 = tk.Radiobutton(Mafenetre, text="jouer contre l'ordinateur", variable=v2, value="IA", command=v2.get, bg=None)
-    j4.grid(row=3, column=2, padx=5, pady=5, sticky=tk.W)
-    j5 = tk.Radiobutton(Mafenetre, text="ne pas connecter ce joueur", variable=v2, value="Non", command=v2.get, bg=None)
+    Adresseb = tk.Entry(Mafenetre, textvariable=adresseblanc, bg='bisque', fg='maroon')
+
+    Adressen = tk.Entry(Mafenetre, textvariable=adressenoir, bg='bisque', fg='maroon')
+
+    j1 = tk.Radiobutton(Mafenetre, text="jouer contre l'ordinateur", variable=v1, value="IA", command=connectonblanc, bg=None)
+    j1.grid(row=4, column=1, padx=5, pady=5, sticky=tk.W)
+    j2 = tk.Radiobutton(Mafenetre, text="ne pas connecter ce joueur", variable=v1, value="Non", command=connectonblanc, bg=None)
+    j2.grid(row=5, column=1, padx=5, pady=5, sticky=tk.W)
+    j3 = tk.Radiobutton(Mafenetre, text="connecter ce joueur", variable=v1, value="Oui", command=connectonblanc, bg=None)
+    j3.grid(row=6, column=1, padx=5, pady=5, sticky=tk.W)
+    j4 = tk.Radiobutton(Mafenetre, text="inscrire ce joueur", variable=v1, value="Inscription", command=connectonblanc, bg=None)
+    j4.grid(row=7, column=1, padx=5, pady=5, sticky=tk.W)
+
+    j5 = tk.Radiobutton(Mafenetre, text="jouer contre l'ordinateur", variable=v2, value="IA", command=connectonnoir, bg=None)
     j5.grid(row=4, column=2, padx=5, pady=5, sticky=tk.W)
-    j6 = tk.Radiobutton(Mafenetre, text="connecter ce joueur", variable=v2, value="Oui", command=v1.get, bg=None)
+    j6 = tk.Radiobutton(Mafenetre, text="ne pas connecter ce joueur", variable=v2, value="Non", command=connectonnoir, bg=None)
     j6.grid(row=5, column=2, padx=5, pady=5, sticky=tk.W)
+    j7 = tk.Radiobutton(Mafenetre, text="connecter ce joueur", variable=v2, value="Oui", command=connectonnoir, bg=None)
+    j7.grid(row=6, column=2, padx=5, pady=5, sticky=tk.W)
+    j8 = tk.Radiobutton(Mafenetre, text="inscrire ce joueur", variable=v2, value="Inscription", command=connectonnoir, bg=None)
+    j8.grid(row=7, column=2, padx=5, pady=5, sticky=tk.W)
 
 
 def Conf_interface():
@@ -108,7 +171,6 @@ def Conf_interface():
             if type(c) is not tk.Canvas:
                 c['bg'] = v.get()
                 if type(c) is tk.Radiobutton:
-                    print(c['selectcolor'])
                     c['selectcolor'] = v.get()
                 if v.get() == "white":
                     c['fg'] = "black"
